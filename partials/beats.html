@@ -1,22 +1,40 @@
 <div class="col-md-12">
-  <h3>Add a new beat!</h3>
+  <p>
+    <h3 class="inline-h"><input class="check-box" type="checkbox" ng-model="searchCheck"/></h3>
+    <h3 class="inline-h" ng-hide="searchCheck">Add a new beat!</h3>
+    <h3 class="inline-h" ng-show="searchCheck">Search for a beat!</h3>
+  </p>
 
-  <form ng-submit="BeatsFactory.addBeat()" class="form-inline" role="form">
+
+  <form ng-submit="BeatsFactory.addBeat()" class="form-inline" ng-hide="searchCheck" role="form">
     <div class="form-group">
       <input type="text" name="name" ng-model="BeatsFactory.beatName" class="form-control" placeholder="enter a beat">
     </div>
   </form>
 
+  <form class="form-inline" ng-show="searchCheck" role="form">
+    <div class="form-group">
+      <input ng-model="query" type="text" class="form-control" placeholder="search for a beat">
+    </div>
+  </form>
 </div>
+
+
+
+
+
+
+
 
 <div class="col-md-12">
   <div ng-show="beats.length">
     <ul class="list-unstyled">
-      <li ng-repeat="item in beats">
+      <li ng-repeat="item in beats | filter:query">
         <a ui-sref="beats.reporters({ beatId: item.id })">{{ item.name }}</a>
         <div ui-view></div>
       </li>
     </ul>
   </div>
+
 
 </div>
