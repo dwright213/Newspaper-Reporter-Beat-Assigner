@@ -1,0 +1,14 @@
+.add-reporter-input {
+  float: right;
+}
+.add-reporter {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+  background: hsla(174, 100%, 50%, 0.23);
+}
+
+.add-reporter-container {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}

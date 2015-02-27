@@ -1,21 +1,22 @@
 <div class="col-md-12">
+  <h3>Add a new beat!</h3>
+
+  <form ng-submit="BeatsFactory.addBeat()" class="form-inline" role="form">
+    <div class="form-group">
+      <input type="text" name="name" ng-model="BeatsFactory.beatName" class="form-control" placeholder="enter a beat">
+    </div>
+  </form>
+
+</div>
+
+<div class="col-md-12">
   <div ng-show="beats.length">
-    <h3>Here are all your beats!</h3>
-  <ul class="list-unstyled">
-    <li ng-repeat="item in beats">{{ item.name }}</li>
-  </ul>
+    <ul class="list-unstyled">
+      <li ng-repeat="item in beats">
+        <a ui-sref="beats.reporters({ beatId: item.id })">{{ item.name }}</a>
+        <div ui-view></div>
+      </li>
+    </ul>
   </div>
-
-  <div class="col-md-12">
-    <h3>Add a new beat!</h3>
-
-    <form ng-submit="BeatsFactory.addBeat()" class="form-inline" role="form">
-      <div class="form-group">
-        <input type="text" name="name" ng-model="BeatsFactory.beatName" class="form-control" placeholder="enter a beat">
-      </div>
-    </form>
-
-  </div>
-
 
 </div>
