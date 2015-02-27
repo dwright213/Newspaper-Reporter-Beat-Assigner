@@ -8,5 +8,6 @@ newsBeats.factory('UtilitiesFactory', function() {
       }
       return null;
     }
+
   };
 });
