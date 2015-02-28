@@ -3,17 +3,19 @@
     <div class="row add-reporter-container">
 
       <div class="col-md-6 add-reporter">
-        <div class="col-md-6">
-          <span ng-hide="beat.reporters.length">Nobody assigned yet!</span>
+        <div class="col-md-6 reporter-list">
+          <center><span ng-hide="beat.reporters.length">Nobody assigned yet!</span></center>
           <ul class="list-unstyled">
             <li ng-repeat="item in beat.reporters | orderBy:'name'">
-              <a href="" ng-click="showInfo = !showInfo">{{ item.name }}</a>
-              <p ng-show="showInfo">{{ item.name }} | {{ item.tenure }} | {{ item.birthdate | date }}
+              <div class="col-md-12" ng-class-odd="'list-odd'" ng-class-even="'list-even'">
+                <a href="" ng-click="showInfo = !showInfo">{{ item.name }}</a>
+                <span ng-show="showInfo"><br>Tenure: {{ item.tenure }} years <br> DOB: {{ item.birthdate | date }}.</span>
+              </div>
             </li>
           </ul>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-6 add-reporter-form">
           <form ng-submit="addReporter()" class="form-group" role="form">
             <div class="form-group">
               <input type="text" ng-model="reporterName" class="form-control" placeholder="Name">
